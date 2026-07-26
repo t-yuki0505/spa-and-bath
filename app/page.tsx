@@ -95,7 +95,6 @@ const faqItems = [
 ] as const;
 
 const organizationId = "https://ufbtech-co.jp/#organization";
-const productId = `${siteUrl}/#product`;
 const serviceId = `${siteUrl}/#service`;
 const faqId = `${siteUrl}/#faq`;
 
@@ -125,42 +124,6 @@ const structuredData = {
         url: `${siteUrl}/#contact`,
         availableLanguage: "ja",
       },
-    },
-    {
-      "@type": "Product",
-      "@id": productId,
-      name: "UFB DUAL®",
-      alternateName: ["UFB DUAL", "UFBDUAL"],
-      category: "温浴施設向け配管直結型ウルトラファインバブル生成ノズル",
-      description:
-        "給水本管へ設置して施設内へUFB水を供給する配管直結型ウルトラファインバブル生成ノズル。温浴施設の全館UFBと人工炭酸泉設備の構成を提案します。",
-      image: [`${siteUrl}/assets/web/ufb-dual-100a.webp`],
-      brand: {
-        "@type": "Brand",
-        name: "UFB DUAL®",
-      },
-      manufacturer: {
-        "@type": "Organization",
-        name: "株式会社ウォーターデザイン",
-      },
-      additionalProperty: [
-        { "@type": "PropertyValue", name: "設置方式", value: "建物の給水本管へ設置" },
-        {
-          "@type": "PropertyValue",
-          name: "供給範囲",
-          value: "浴槽・浴室・シャワー・洗面・厨房・ランドリーなど",
-        },
-        {
-          "@type": "PropertyValue",
-          name: "動力・消耗品",
-          value: "外部電源・ポンプ・薬剤・カートリッジ不要",
-        },
-        {
-          "@type": "PropertyValue",
-          name: "保証",
-          value: "50Aまでの対象モデルは10年保証。50Aを超える大口径は個別案内",
-        },
-      ],
     },
     {
       "@type": "Service",
@@ -223,8 +186,8 @@ const structuredData = {
         "施設の課題解決, 炭酸ガス削減, 施設の新規開業, 施設改装, ホテル水設備, 旅館水設備, ジム設備, プール設備, 全館UFB, 人工炭酸泉",
       inLanguage: "ja-JP",
       isPartOf: { "@id": `${siteUrl}/#website` },
-      about: [{ "@id": organizationId }, { "@id": productId }],
-      mainEntity: [{ "@id": productId }, { "@id": serviceId }, { "@id": faqId }],
+      about: [{ "@id": organizationId }, { "@id": serviceId }],
+      mainEntity: [{ "@id": serviceId }, { "@id": faqId }],
       publisher: { "@id": organizationId },
       primaryImageOfPage: {
         "@type": "ImageObject",
