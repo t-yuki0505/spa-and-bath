@@ -362,8 +362,8 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   .button { width: 100%; min-width: 0; min-height: 62px; font-size: 15px; }
 
   .hero { min-height: 760px; }
-  .hero-image { object-position: 64% center; }
-  .hero-overlay { background: linear-gradient(180deg, rgba(3,26,43,.28) 0%, rgba(3,26,43,.45) 35%, rgba(3,26,43,.97) 67%, rgba(3,26,43,1) 100%); }
+  .hero-image { object-position: 30% center; }
+  .hero-overlay { background: linear-gradient(180deg, rgba(3,26,43,.46) 0%, rgba(3,26,43,.5) 35%, rgba(3,26,43,.97) 67%, rgba(3,26,43,1) 100%); }
   .site-header { min-height: 65px; }
   .brand { width: 132px; }
   .hero-content { position: static; }

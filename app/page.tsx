@@ -451,9 +451,9 @@ export default function Home() {
         <section className="scenes" id="scenes">
           <div className="container">
             <header className="section-head">
-              <p className="kicker">各シーンで期待できるメリット</p>
+              <p className="kicker">温浴施設から、さまざまな施設へ</p>
               <h2 className="title">施設の水を変えると、<br />日々の運営が変わる。</h2>
-              <p className="lead">利用者が触れる水から、清掃・洗浄・配管管理まで。UFB水の活用範囲は館内全体へ広がります。</p>
+              <p className="lead">ホテル・旅館、ジム、レジャー施設、プールなど、水を使うさまざまな施設へ。利用者が触れる水から、清掃・洗浄・配管管理まで、UFB水のメリットが日々の運営全体へ広がります。</p>
             </header>
             <div className="scene-grid">
               {scenes.map((scene) => (
