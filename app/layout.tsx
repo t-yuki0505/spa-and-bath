@@ -6,14 +6,14 @@ import { siteUrl } from "./site-config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "温浴施設向け UFB DUAL®｜全館UFB・人工炭酸泉設備｜UFB TECH株式会社",
+  title: "ホテル・温浴施設向けUFB設備｜炭酸ガス削減・開業・改装｜UFB DUAL®",
   description:
-    "温浴施設向けUFB DUAL®。給水本管への設置で全館へUFB水を供給し、バイオフィルム対策を支援。人工炭酸泉装置では従来方式比で炭酸ガス使用量40％以上削減を目指します。UFB TECH株式会社。",
+    "ホテル・旅館、温浴施設、ジム、プール、レジャー施設の新規開業・改装・設備更新へ。給水本管から施設全体へUFB水を届けるUFB DUAL®と、従来方式比で炭酸ガス使用量40％以上削減を目指す人工炭酸泉設備をご提案します。",
   applicationName: "UFB TECH株式会社",
   authors: [{ name: "UFB TECH株式会社", url: "https://ufbtech-co.jp/" }],
   creator: "UFB TECH株式会社",
   publisher: "UFB TECH株式会社",
-  category: "温浴施設向け設備",
+  category: "ホテル・温浴施設向け水設備",
   referrer: "origin-when-cross-origin",
   formatDetection: {
     telephone: false,
@@ -27,10 +27,19 @@ export const metadata: Metadata = {
     "UFB DUAL",
     "UFBDUAL",
     "温浴施設",
+    "ホテル 水設備",
+    "旅館 水設備",
+    "ジム シャワー設備",
+    "プール 配管設備",
+    "レジャー施設 水設備",
+    "施設 開業 設備",
+    "施設 改装 設備",
+    "施設 水 課題解決",
     "全館UFB",
     "人工炭酸泉装置",
     "バイオフィルム対策",
     "炭酸ガス削減",
+    "炭酸ガス コスト削減",
     "UFB TECH株式会社",
   ],
   openGraph: {
@@ -38,15 +47,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     siteName: "UFB TECH株式会社",
-    title: "温浴施設向け UFB DUAL®｜全館UFB・人工炭酸泉設備",
+    title: "ホテル・温浴施設向けUFB設備｜炭酸ガス削減・開業・改装",
     description:
-      "衛生管理と炭酸泉コストに答えを。給水本管から施設全体へUFB水を届ける設備をご提案します。",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "温浴施設向け UFB DUAL®" }],
+      "ホテル・旅館、温浴施設、ジム、プールなどの新規開業・改装へ。全館UFBと炭酸ガス削減を目指す人工炭酸泉設備をご提案します。",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "ホテル・温浴施設向け UFB DUAL®" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "温浴施設向け UFB DUAL®｜UFB TECH株式会社",
-    description: "全館UFBと人工炭酸泉設備で、温浴施設の水環境と運営コストを改善へ。",
+    title: "ホテル・温浴施設向けUFB設備｜UFB DUAL®",
+    description: "新規開業・改装時の全館UFBと、炭酸ガス使用量40％以上削減を目指す人工炭酸泉設備をご提案します。",
     images: ["/og-image.jpg"],
   },
   icons: {

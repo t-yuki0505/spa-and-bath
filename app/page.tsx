@@ -61,9 +61,43 @@ const scenes = [
   },
 ] as const;
 
+const faqItems = [
+  {
+    question: "新規開業・新築の計画段階から相談できますか？",
+    answer:
+      "はい。ホテル・旅館、温浴施設、ジム、プール、レジャー施設など、施設用途と給水計画を確認し、配管設計の段階から全館UFBや人工炭酸泉設備の構成をご提案します。",
+  },
+  {
+    question: "既存施設の改装・リニューアルでも導入できますか？",
+    answer:
+      "導入できます。既存配管、機械室のスペース、施設を停止できる時間などを確認し、運営への影響を抑えた設置方法を個別に検討します。",
+  },
+  {
+    question: "温浴施設以外でも同じように活用できますか？",
+    answer:
+      "ホテル・旅館、ジム、プール、レジャー施設など、水を多く使う施設で検討できます。利用者が触れる水に加え、清掃・洗浄・配管管理まで、施設用途に合わせて活用範囲を整理します。",
+  },
+  {
+    question: "炭酸ガス使用量40％以上削減とは、どのような数値ですか？",
+    answer:
+      "UFB DUAL®人工炭酸泉装置と従来方式との比較値です。実際の削減率は、浴槽容量、水温、循環量、目標濃度、運転条件などにより異なるため、現在の設備と使用量を確認してご提案します。",
+  },
+  {
+    question: "給水本管へ設置すると、どこへUFB水が届きますか？",
+    answer:
+      "給水系統に応じて、浴槽・浴室、シャワー、洗面・トイレ、厨房、ランドリーなどへUFB水を供給できます。施設の配管構成により供給範囲は異なります。",
+  },
+  {
+    question: "認証と保証の対象範囲を教えてください。",
+    answer:
+      "50Aまでの対象モデルには、JWWAの認証登録およびJETの給水器具等認証を取得したモデルがあり、10年保証を案内しています。50Aを超える大口径は、施設条件を確認のうえ個別にご案内します。",
+  },
+] as const;
+
 const organizationId = "https://ufbtech-co.jp/#organization";
 const productId = `${siteUrl}/#product`;
 const serviceId = `${siteUrl}/#service`;
+const faqId = `${siteUrl}/#faq`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -131,21 +165,50 @@ const structuredData = {
     {
       "@type": "Service",
       "@id": serviceId,
-      name: "温浴施設向け UFB DUAL® 導入提案",
-      serviceType: "全館UFB・人工炭酸泉設備の導入支援",
+      name: "ホテル・温浴施設向け UFB DUAL® 導入提案",
+      serviceType: [
+        "全館UFB設備の導入支援",
+        "人工炭酸泉設備の導入支援",
+        "施設の新規開業・改装時の水設備計画",
+        "炭酸ガス使用量の見直し",
+      ],
       provider: { "@id": organizationId },
-      audience: {
-        "@type": "BusinessAudience",
-        audienceType: "温浴施設運営事業者",
-      },
+      areaServed: { "@type": "Country", name: "日本" },
+      audience: [
+        { "@type": "BusinessAudience", audienceType: "温浴施設運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "ホテル・旅館運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "ジム・プール運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "レジャー施設運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "施設の新規開業・改装担当者" },
+      ],
       description:
-        "施設の配管状況、浴槽容量、現在の炭酸ガス使用量を確認し、設備構成と導入方法を提案します。",
+        "ホテル・旅館、温浴施設、ジム、プール、レジャー施設の配管状況や用途を確認し、新規開業・改装に合わせた全館UFBと人工炭酸泉設備の構成、炭酸ガス使用量の見直しを提案します。",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "UFB DUAL® 設備提案",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "給水本管から施設全体へUFB水を届ける全館UFB設備",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "炭酸ガス使用量40％以上削減を目指す人工炭酸泉設備",
+            },
+          },
+        ],
+      },
     },
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "UFB TECH株式会社 温浴施設向け UFB DUAL®",
+      name: "UFB TECH株式会社 ホテル・温浴施設向け UFB DUAL®",
       inLanguage: "ja-JP",
       publisher: { "@id": organizationId },
     },
@@ -153,18 +216,34 @@ const structuredData = {
       "@type": "WebPage",
       "@id": `${siteUrl}/#webpage`,
       url: siteUrl,
-      name: "温浴施設向け UFB DUAL®｜全館UFB・人工炭酸泉設備",
+      name: "ホテル・温浴施設向けUFB設備｜炭酸ガス削減・開業・改装｜UFB DUAL®",
       description:
-        "温浴施設向けUFB DUAL®。全館UFBによる水環境づくりと、人工炭酸泉装置による炭酸ガス使用量の削減を提案します。",
+        "ホテル・旅館、温浴施設、ジム、プール、レジャー施設の新規開業・改装へ。全館UFBによる水環境づくりと、人工炭酸泉装置による炭酸ガス使用量の削減を提案します。",
+      keywords:
+        "施設の課題解決, 炭酸ガス削減, 施設の新規開業, 施設改装, ホテル水設備, 旅館水設備, ジム設備, プール設備, 全館UFB, 人工炭酸泉",
       inLanguage: "ja-JP",
       isPartOf: { "@id": `${siteUrl}/#website` },
       about: [{ "@id": organizationId }, { "@id": productId }],
-      mainEntity: [{ "@id": productId }, { "@id": serviceId }],
+      mainEntity: [{ "@id": productId }, { "@id": serviceId }, { "@id": faqId }],
       publisher: { "@id": organizationId },
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${siteUrl}/og-image.jpg`,
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": faqId,
+      url: `${siteUrl}/#faq`,
+      inLanguage: "ja-JP",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
 };
@@ -518,18 +597,36 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="faq" id="faq" aria-labelledby="faq-title">
+          <div className="container">
+            <header className="section-head">
+              <p className="kicker">導入をご検討の方へ</p>
+              <h2 className="title" id="faq-title">新規開業・改装時の<br />よくあるご質問。</h2>
+              <p className="lead">施設計画の段階から、既存設備の更新、炭酸ガス費用の見直しまでご相談いただけます。</p>
+            </header>
+            <div className="faq-list">
+              {faqItems.map((item, index) => (
+                <details className="faq-item" key={item.question}>
+                  <summary><span>Q{String(index + 1).padStart(2, "0")}</span>{item.question}</summary>
+                  <div className="faq-answer"><span>A</span><p>{item.answer}</p></div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="cta" id="contact">
           <ResponsiveImage name="open-air-bath" alt="温浴施設の露天風呂" className="cover-image" />
           <div className="cta-overlay" aria-hidden="true" />
           <div className="container cta-content">
             <p className="kicker">お問い合わせ</p>
             <h2>
-              既存施設の<span className="narrow-only"><br /></span>改善も、<br />
-              新しい炭酸泉の<span className="mobile-only"><br /></span>導入も。
+              新規開業も、<span className="narrow-only"><br /></span>施設の改装も。<br />
+              水設備の計画から<span className="mobile-only"><br /></span>ご提案します。
             </h2>
-            <p>施設の配管状況、浴槽容量、現在の炭酸ガス使用量を確認し、<br />設備構成と導入方法をご提案します。</p>
+            <p>ホテル・旅館、温浴施設、ジム、プール、レジャー施設など、<br />施設用途・配管状況・炭酸ガス使用量に合わせて設備構成をご提案します。</p>
             <div className="cta-tags">
-              <span>既存施設</span><span>新設施設</span><span>炭酸泉の新規導入</span><span>炭酸ガス費用の見直し</span>
+              <span>新規開業・新築</span><span>改装・リニューアル</span><span>ホテル・旅館</span><span>ジム・プール</span><span>炭酸ガス費用の見直し</span>
             </div>
             <div className="hubspot-form">
               <iframe
