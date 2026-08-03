@@ -2,7 +2,7 @@
 import { siteUrl } from "./site-config";
 
 const contactUrl = "#contact";
-const hubspotFormUrl = "https://42re3u.share-na2.hsforms.com/2_c7gVmFfRs-qhyxN4tR2KQ";
+const hubspotFormUrl = "https://42re3u.share-na2.hsforms.com/27kq3_tjxRzedHvwdqAf04Q";
 
 const scenes = [
   {
@@ -18,7 +18,7 @@ const scenes = [
     key: "shower",
     no: "02",
     place: "シャワー",
-    title: "毎日触れる水を付加価値に",
+    title: "シャワーに付加価値を",
     text: "各シャワーヘッドの交換ではなく、給水系統から施設共通のUFB水を届けます。",
     image: "shower",
     alt: "温浴施設のシャワーから流れる水に触れる手",
@@ -27,7 +27,7 @@ const scenes = [
     key: "pipe",
     no: "03",
     place: "配管・シャワーホース",
-    title: "見えない内側にもアプローチ",
+    title: "配管の内側へアプローチ",
     text: "日常的にUFB水を流しながら、配管やシャワーホース内の環境維持を支えます。",
     image: "biofilm-pipe",
     alt: "配管内側に形成されたバイオフィルムのイメージ",
@@ -61,32 +61,42 @@ const scenes = [
   },
 ] as const;
 
-const trustItems = [
+const faqItems = [
   {
-    no: "01",
-    title: <>JWWA・JET<br />給水器具関連認証</>,
-    text: "JWWAの認証登録およびJETの給水器具等認証を取得したモデルを用意しています。",
+    question: "新規開業・新築の計画段階から相談できますか？",
+    answer:
+      "はい。ホテル・旅館、温浴施設、ジム、プール、レジャー施設など、施設用途と給水計画を確認し、配管設計の段階から全館UFBや人工炭酸泉設備の構成をご提案します。",
   },
   {
-    no: "02",
-    title: <>水利協<br />推奨製品</>,
-    text: "バイオフィルム除去に関する効果が認められた推奨製品です。",
+    question: "既存施設の改装・リニューアルでも導入できますか？",
+    answer:
+      "導入できます。既存配管、機械室のスペース、施設を停止できる時間などを確認し、運営への影響を抑えた設置方法を個別に検討します。",
   },
   {
-    no: "03",
-    title: <>外部電源・ポンプ<br />薬剤不要</>,
-    text: "水流を利用してUFBを生成。薬剤やカートリッジも使用しません。",
+    question: "温浴施設以外でも同じように活用できますか？",
+    answer:
+      "ホテル・旅館、ジム、プール、レジャー施設など、水を多く使う施設で検討できます。利用者が触れる水に加え、清掃・洗浄・配管管理まで、施設用途に合わせて活用範囲を整理します。",
   },
   {
-    no: "04",
-    title: <>小口径から大口径<br />10年保証</>,
-    text: "施設規模や配管口径に合わせて選定し、長期運用を支えます。",
+    question: "炭酸ガス使用量40％以上削減とは、どのような数値ですか？",
+    answer:
+      "UFB DUAL®人工炭酸泉装置と従来方式との比較値です。実際の削減率は、浴槽容量、水温、循環量、目標濃度、運転条件などにより異なるため、現在の設備と使用量を確認してご提案します。",
+  },
+  {
+    question: "給水本管へ設置すると、どこへUFB水が届きますか？",
+    answer:
+      "給水系統に応じて、浴槽・浴室、シャワー、洗面・トイレ、厨房、ランドリーなどへUFB水を供給できます。施設の配管構成により供給範囲は異なります。",
+  },
+  {
+    question: "認証と保証の対象範囲を教えてください。",
+    answer:
+      "50Aまでの対象モデルには、JWWAの認証登録およびJETの給水器具等認証を取得したモデルがあり、10年保証を案内しています。50Aを超える大口径は、施設条件を確認のうえ個別にご案内します。",
   },
 ] as const;
 
 const organizationId = "https://ufbtech-co.jp/#organization";
-const productId = `${siteUrl}/#product`;
 const serviceId = `${siteUrl}/#service`;
+const faqId = `${siteUrl}/#faq`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -116,55 +126,52 @@ const structuredData = {
       },
     },
     {
-      "@type": "Product",
-      "@id": productId,
-      name: "UFB DUAL®",
-      alternateName: ["UFB DUAL", "UFBDUAL"],
-      category: "温浴施設向け配管直結型ウルトラファインバブル生成ノズル",
-      description:
-        "給水本管へ設置して施設内へUFB水を供給する配管直結型ウルトラファインバブル生成ノズル。温浴施設の全館UFBと人工炭酸泉設備の構成を提案します。",
-      image: [`${siteUrl}/assets/web/ufb-dual-50a.webp`],
-      brand: {
-        "@type": "Brand",
-        name: "UFB DUAL®",
-      },
-      manufacturer: {
-        "@type": "Organization",
-        name: "株式会社ウォーターデザイン",
-      },
-      additionalProperty: [
-        { "@type": "PropertyValue", name: "設置方式", value: "建物の給水本管へ設置" },
-        {
-          "@type": "PropertyValue",
-          name: "供給範囲",
-          value: "浴槽・浴室・シャワー・洗面・厨房・ランドリーなど",
-        },
-        {
-          "@type": "PropertyValue",
-          name: "動力・消耗品",
-          value: "外部電源・ポンプ・薬剤・カートリッジ不要",
-        },
-        { "@type": "PropertyValue", name: "保証", value: "10年保証" },
-      ],
-    },
-    {
       "@type": "Service",
       "@id": serviceId,
-      name: "温浴施設向け UFB DUAL® 導入提案",
-      serviceType: "全館UFB・人工炭酸泉設備の導入支援",
+      name: "ホテル・温浴施設向け UFB DUAL® 導入提案",
+      serviceType: [
+        "全館UFB設備の導入支援",
+        "人工炭酸泉設備の導入支援",
+        "施設の新規開業・改装時の水設備計画",
+        "炭酸ガス使用量の見直し",
+      ],
       provider: { "@id": organizationId },
-      audience: {
-        "@type": "BusinessAudience",
-        audienceType: "温浴施設運営事業者",
-      },
+      areaServed: { "@type": "Country", name: "日本" },
+      audience: [
+        { "@type": "BusinessAudience", audienceType: "温浴施設運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "ホテル・旅館運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "ジム・プール運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "レジャー施設運営事業者" },
+        { "@type": "BusinessAudience", audienceType: "施設の新規開業・改装担当者" },
+      ],
       description:
-        "施設の配管状況、浴槽容量、現在の炭酸ガス使用量を確認し、設備構成と導入方法を提案します。",
+        "ホテル・旅館、温浴施設、ジム、プール、レジャー施設の配管状況や用途を確認し、新規開業・改装に合わせた全館UFBと人工炭酸泉設備の構成、炭酸ガス使用量の見直しを提案します。",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "UFB DUAL® 設備提案",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "給水本管から施設全体へUFB水を届ける全館UFB設備",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "炭酸ガス使用量40％以上削減を目指す人工炭酸泉設備",
+            },
+          },
+        ],
+      },
     },
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "UFB TECH株式会社 温浴施設向け UFB DUAL®",
+      name: "UFB TECH株式会社 ホテル・温浴施設向け UFB DUAL®",
       inLanguage: "ja-JP",
       publisher: { "@id": organizationId },
     },
@@ -172,18 +179,34 @@ const structuredData = {
       "@type": "WebPage",
       "@id": `${siteUrl}/#webpage`,
       url: siteUrl,
-      name: "温浴施設向け UFB DUAL®｜全館UFB・人工炭酸泉設備",
+      name: "ホテル・温浴施設向けUFB設備｜炭酸ガス削減・開業・改装｜UFB DUAL®",
       description:
-        "温浴施設向けUFB DUAL®。全館UFBによる水環境づくりと、人工炭酸泉装置による炭酸ガス使用量の削減を提案します。",
+        "ホテル・旅館、温浴施設、ジム、プール、レジャー施設の新規開業・改装へ。全館UFBによる水環境づくりと、人工炭酸泉装置による炭酸ガス使用量の削減を提案します。",
+      keywords:
+        "施設の課題解決, 炭酸ガス削減, 施設の新規開業, 施設改装, ホテル水設備, 旅館水設備, ジム設備, プール設備, 全館UFB, 人工炭酸泉",
       inLanguage: "ja-JP",
       isPartOf: { "@id": `${siteUrl}/#website` },
-      about: [{ "@id": organizationId }, { "@id": productId }],
-      mainEntity: [{ "@id": productId }, { "@id": serviceId }],
+      about: [{ "@id": organizationId }, { "@id": serviceId }],
+      mainEntity: [{ "@id": serviceId }, { "@id": faqId }],
       publisher: { "@id": organizationId },
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${siteUrl}/og-image.jpg`,
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": faqId,
+      url: `${siteUrl}/#faq`,
+      inLanguage: "ja-JP",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     },
   ],
 };
@@ -257,7 +280,8 @@ export default function Home() {
           <header className="site-header container">
             <a className="brand" href="#top" aria-label="UFB TECH株式会社 温浴施設向けページの先頭へ">
               <img
-                src="/assets/original/ufbtech-logo.png"
+                className="brand-logo"
+                src="/assets/original/ufbtech-logo-white-color-mark.png"
                 width="893"
                 height="152"
                 alt="UFB TECH株式会社"
@@ -268,7 +292,7 @@ export default function Home() {
               <a href="#solutions">UFB DUAL®による解決</a>
               <a href="#whole-facility">全館UFB</a>
               <a href="#scenes">活用シーン</a>
-              <a href="#trust">製品の信頼性</a>
+              <a href="#trust">導入設備例</a>
               <a className="header-cta" href={contactUrl}>お問い合わせ</a>
             </nav>
             <details className="mobile-menu">
@@ -278,7 +302,7 @@ export default function Home() {
                 <a href="#solutions">UFB DUAL®による解決</a>
                 <a href="#whole-facility">全館UFB</a>
                 <a href="#scenes">活用シーン</a>
-                <a href="#trust">製品の信頼性</a>
+                <a href="#trust">導入設備例</a>
                 <a href={contactUrl}>お問い合わせ</a>
               </nav>
             </details>
@@ -287,7 +311,7 @@ export default function Home() {
           <div className="container hero-content" id="top">
             <div className="hero-copy">
               <p className="kicker">温浴施設向け ウルトラファインバブルのご提案</p>
-              <h1 id="hero-title">衛生管理と、<br />炭酸泉コストに<span className="mobile-only"><br /></span>答えを。</h1>
+              <h1 id="hero-title">衛生管理と、<br />炭酸泉コストに<br />答えを。</h1>
               <p className="hero-lead">
                 レジオネラ属菌対策に関わるバイオフィルムと、値上がりが続く炭酸ガス。
                 UFB DUAL®が、温浴施設の2つの重要課題を解決へ導きます。
@@ -297,11 +321,11 @@ export default function Home() {
           </div>
 
           <img
-            className="hero-product"
-            src="/assets/web/ufb-dual-50a-1440.webp"
-            srcSet="/assets/web/ufb-dual-50a-960.webp 960w, /assets/web/ufb-dual-50a-1440.webp 1440w, /assets/web/ufb-dual-50a.webp 2000w"
-            sizes="(max-width: 700px) 0px, 47vw"
-            alt="給水本管へ設置するUFB DUAL® 50A"
+            className="hero-product hero-product-100a"
+            src="/assets/web/ufb-dual-100a-1440.webp"
+            srcSet="/assets/web/ufb-dual-100a-960.webp 960w, /assets/web/ufb-dual-100a-1440.webp 1440w, /assets/web/ufb-dual-100a.webp 2000w"
+            sizes="(max-width: 700px) 0px, 48vw"
+            alt="給水本管へ設置するUFB DUAL® 100A"
             width="2000"
             height="1123"
             loading="eager"
@@ -309,7 +333,7 @@ export default function Home() {
           />
           <div className="hero-message" aria-label="2つの主要提案">
             <div><small>HYGIENE</small><strong>バイオフィルム対策</strong></div>
-            <div><small>RUNNING COST</small><strong>炭酸ガス40％以上削減</strong></div>
+            <div className="cost-highlight"><small>RUNNING COST</small><strong>炭酸ガス40％以上削減</strong></div>
           </div>
         </section>
 
@@ -317,7 +341,18 @@ export default function Home() {
           <div className="container">
             <header className="section-head">
               <p className="kicker">温浴施設が抱える2つの課題</p>
-              <h2 className="title">目に見えない衛生リスクと、<br />増え続ける運営コスト。</h2>
+              <h2 className="title issues-title">
+                <span className="issues-title-wide">
+                  <span>目に見えない衛生リスクと、</span>
+                  <span>増え続ける運営コスト。</span>
+                </span>
+                <span className="issues-title-narrow">
+                  <span>目に見えない</span>
+                  <span>衛生リスクと、</span>
+                  <span>増え続ける</span>
+                  <span>運営コスト。</span>
+                </span>
+              </h2>
               <p className="lead">どちらも温浴施設にとって避けて通れない、日常運営に直結する課題です。</p>
             </header>
             <div className="issue-grid">
@@ -338,7 +373,7 @@ export default function Home() {
                 <span className="issue-no">02</span>
                 <div className="issue-body">
                   <small>炭酸泉の導入・運営</small>
-                  <h3>炭酸ガスの値上がりが、<br />目玉風呂の負担に。</h3>
+                  <h3>炭酸ガスの<span className="mobile-only"><br /></span>値上がりが、<br />目玉風呂の負担に。</h3>
                   <p>人工炭酸泉を運営するほど積み重なる炭酸ガス費用。新しく導入したくても、費用や設備ノウハウが壁になります。</p>
                   <strong className="issue-alt">魅力は維持しながら、ガス使用量と運営費を抑えたい</strong>
                 </div>
@@ -354,7 +389,10 @@ export default function Home() {
               <h2 className="title">その2つの課題を、<br />UFB DUAL®が<span className="mobile-only"><br /></span>解決します。</h2>
               <p className="lead">施設全体の水環境と、目玉浴槽の運営コスト。役割の異なる2つの設備を、一つの提案としてご用意します。</p>
             </header>
-            <p className="solution-bridge">衛生管理の強化と、炭酸泉コストの削減を同時に。</p>
+            <p className="solution-bridge">
+              衛生管理と、<span className="mobile-only"><br /></span>
+              炭酸泉コスト削減を<span className="mobile-only"><br /></span>同時に。
+            </p>
             <div className="solution-grid">
               <article className="solution-card">
                 <div className="solution-visual">
@@ -365,11 +403,11 @@ export default function Home() {
                     <strong>建物の大元に1台。<br />施設全体へ。</strong>
                   </div>
                   <img
-                    className="solution-product"
-                    src="/assets/web/ufb-dual-50a-960.webp"
-                    srcSet="/assets/web/ufb-dual-50a-960.webp 960w, /assets/web/ufb-dual-50a-1440.webp 1440w, /assets/web/ufb-dual-50a.webp 2000w"
+                    className="solution-product solution-product-100a"
+                    src="/assets/web/ufb-dual-100a-960.webp"
+                    srcSet="/assets/web/ufb-dual-100a-960.webp 960w, /assets/web/ufb-dual-100a-1440.webp 1440w, /assets/web/ufb-dual-100a.webp 2000w"
                     sizes="(max-width: 700px) 64vw, 29vw"
-                    alt="UFB DUAL® 50A"
+                    alt="UFB DUAL® 100A"
                     width="2000"
                     height="1123"
                     loading="lazy"
@@ -377,14 +415,16 @@ export default function Home() {
                 </div>
                 <div className="solution-body">
                   <span className="solution-type">配管直結型UFB生成ノズル</span>
-                  <h3>給水本管から、<br />建物全体をUFB水へ。</h3>
+                  <h3>給水本管から、<br />建物全体を<span className="mobile-only"><br /></span>UFB水へ。</h3>
                   <p>建物の給水本管にUFB DUAL®を設置。浴槽、浴室、シャワーホース、洗面、厨房、ランドリーなど、水が流れる場所へUFB水を届けます。</p>
-                  <div className="metric">
+                  <div className="metric metric-recommendation">
                     <small>公益社団法人 全国水利用設備環境衛生協会</small>
-                    <strong>水利協 推奨製品</strong>
+                    <strong><em>水利協</em><span className="metric-unit">推奨品</span></strong>
+                    <span className="metric-caption">バイオフィルム除去に関する効果が認められた推奨品です。</span>
                   </div>
                   <ul className="solution-points">
-                    <li>バイオフィルム除去に関する効果が認められています</li>
+                    <li>JWWA認証登録・JET給水器具等認証（対象モデル：50Aまで）</li>
+                    <li>10年保証（対象モデル：50Aまで）</li>
                     <li>レジオネラ属菌が生息しにくい環境づくりを支えます</li>
                     <li>外部電源・ポンプ・薬剤・カートリッジ不要</li>
                   </ul>
@@ -415,11 +455,12 @@ export default function Home() {
                 </div>
                 <div className="solution-body">
                   <span className="solution-type">UFB DUAL® 炭酸泉装置</span>
-                  <h3>効率よく溶解し、<br />少ないガスで炭酸泉を。</h3>
-                  <p>UFB技術で炭酸ガスを微細化し、効率よく水へ溶解。既存の人工炭酸泉にも、新たな目玉風呂の導入にも対応します。</p>
-                  <div className="metric">
+                  <h3>効率よく溶解し、<br />少ないガスで<span className="mobile-only"><br /></span>炭酸泉を。</h3>
+                  <p>UFB技術で炭酸ガスを微細化し、効率よく水へ溶解。既存設備・新規導入のどちらでも、炭酸泉の魅力を維持しながら継続的なガス費用の見直しにつなげます。</p>
+                  <div className="metric metric-savings">
                     <small>従来方式比・炭酸ガス使用量</small>
-                    <strong><em>40％以上</em> 削減</strong>
+                    <strong><em>40％以上</em><span className="metric-unit">削減</span></strong>
+                    <span className="metric-caption">毎月の炭酸ガス費用を見直す、導入判断の根拠に。</span>
                   </div>
                   <ul className="solution-points">
                     <li>値上がりする炭酸ガス費用の負担を軽減</li>
@@ -439,7 +480,7 @@ export default function Home() {
           <div className="container">
             <div className="whole-copy">
               <p className="kicker">さらに、建物全体にUFB水が流れるということ</p>
-              <h2>ひとつの設備から、<br />水を使うすべての場面へ。</h2>
+              <h2>ひとつの設備から、<br />水を使う<span className="mobile-only"><br /></span>すべての場面へ。</h2>
               <p>UFB DUAL®は、特定の浴槽だけに使う設備ではありません。給水本管から施設全体へUFB水を供給するため、浴場からバックヤードまで、さまざまな場面にメリットが広がります。</p>
               <div className="water-route" aria-label="UFB水が届く場所">
                 <span>浴槽・浴室</span><span>シャワー</span><span>配管</span>
@@ -452,9 +493,9 @@ export default function Home() {
         <section className="scenes" id="scenes">
           <div className="container">
             <header className="section-head">
-              <p className="kicker">各シーンで期待できるメリット</p>
+              <p className="kicker">温浴施設から、さまざまな施設へ</p>
               <h2 className="title">施設の水を変えると、<br />日々の運営が変わる。</h2>
-              <p className="lead">利用者が触れる水から、清掃・洗浄・配管管理まで。UFB水の活用範囲は館内全体へ広がります。</p>
+              <p className="lead">ホテル・旅館、ジム、レジャー施設、プールなど、水を使うさまざまな施設へ。利用者が触れる水から、清掃・洗浄・配管管理まで、UFB水のメリットが日々の運営全体へ広がります。</p>
             </header>
             <div className="scene-grid">
               {scenes.map((scene) => (
@@ -476,16 +517,62 @@ export default function Home() {
         <section className="trust" id="trust">
           <div className="container">
             <header className="section-head">
-              <p className="kicker">導入を支える製品仕様</p>
-              <h2 className="title">給水本管へ設置する設備。<br />信頼性にも配慮。</h2>
+              <p className="kicker">導入設備例</p>
+              <h2 className="title">UFB DUAL®の設備を、<br />写真でご紹介。</h2>
+              <p className="lead">人工炭酸泉設備と、給水本管へ設置する100Aモデルをご紹介します。</p>
             </header>
-            <div className="trust-grid">
-              {trustItems.map((item) => (
-                <article className="trust-item" key={item.no}>
-                  <span>{item.no}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
+            <div className="equipment-gallery">
+              <figure className="equipment-feature">
+                <div className="equipment-feature-photo">
+                  <ResponsiveImage
+                    name="carbonated-equipment"
+                    alt="温浴施設へ設置された実際のUFB DUAL®人工炭酸泉設備"
+                    className="cover-image"
+                    width={2000}
+                    height={1125}
+                    sizes="(max-width: 700px) 100vw, 50vw"
+                  />
+                </div>
+                <figcaption>
+                  <small>実際の設置例</small>
+                  <strong>UFB DUAL®<br />人工炭酸泉設備</strong>
+                  <p>浴槽・循環設備に合わせて、機器構成と設置方法をご提案します。</p>
+                </figcaption>
+              </figure>
+              <figure className="equipment-feature equipment-feature-100a">
+                <div className="equipment-feature-photo">
+                  <ResponsiveImage
+                    name="ufb-dual-100a-blue"
+                    alt="給水本管へ設置するUFB DUAL® 100Aモデル"
+                    className="cover-image"
+                    width={3472}
+                    height={2604}
+                    sizes="(max-width: 700px) 100vw, 50vw"
+                  />
+                </div>
+                <figcaption>
+                  <small>100A 導入例</small>
+                  <strong>給水本管へ設置する<br />100Aモデル</strong>
+                  <p>施設の給水設備へ設置された、UFB DUAL® 100Aの導入例です。</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section className="faq" id="faq" aria-labelledby="faq-title">
+          <div className="container">
+            <header className="section-head">
+              <p className="kicker">導入をご検討の方へ</p>
+              <h2 className="title" id="faq-title">新規開業・改装時の<br />よくあるご質問。</h2>
+              <p className="lead">施設計画の段階から、既存設備の更新、炭酸ガス費用の見直しまでご相談いただけます。</p>
+            </header>
+            <div className="faq-list">
+              {faqItems.map((item, index) => (
+                <details className="faq-item" key={item.question}>
+                  <summary><span>Q{String(index + 1).padStart(2, "0")}</span>{item.question}</summary>
+                  <div className="faq-answer"><span>A</span><p>{item.answer}</p></div>
+                </details>
               ))}
             </div>
           </div>
@@ -496,10 +583,13 @@ export default function Home() {
           <div className="cta-overlay" aria-hidden="true" />
           <div className="container cta-content">
             <p className="kicker">お問い合わせ</p>
-            <h2>既存施設の改善も、<br />新しい炭酸泉の導入も。</h2>
-            <p>施設の配管状況、浴槽容量、現在の炭酸ガス使用量を確認し、<br />設備構成と導入方法をご提案します。</p>
+            <h2>
+              新規開業も、<span className="narrow-only"><br /></span>施設の改装も。<br />
+              水設備の計画から<span className="mobile-only"><br /></span>ご提案します。
+            </h2>
+            <p>ホテル・旅館、温浴施設、ジム、プール、レジャー施設など、<br />施設用途・配管状況・炭酸ガス使用量に合わせて設備構成をご提案します。</p>
             <div className="cta-tags">
-              <span>既存施設</span><span>新設施設</span><span>炭酸泉の新規導入</span><span>炭酸ガス費用の見直し</span>
+              <span>新規開業・新築</span><span>改装・リニューアル</span><span>ホテル・旅館</span><span>ジム・プール</span><span>炭酸ガス費用の見直し</span>
             </div>
             <div className="hubspot-form">
               <iframe
@@ -515,7 +605,7 @@ export default function Home() {
         <footer className="footer">
           <div className="container footer-inner">
             <div className="footer-company">
-              <img src="/assets/original/ufbtech-logo.png" width="893" height="152" alt="UFB TECH株式会社" />
+              <img src="/assets/original/ufbtech-logo-white-color-mark.png" width="893" height="152" alt="UFB TECH株式会社" />
               <p>UFB TECH株式会社</p>
             </div>
             <address>
